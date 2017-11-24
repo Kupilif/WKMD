@@ -151,11 +151,13 @@
     <ClCompile Include="DriverVariables.c" />
     <ClCompile Include="Init.c" />
     <ClCompile Include="RegFilter.c" />
+    <ClCompile Include="Utils.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DriverVariables.h" />
     <ClInclude Include="Init.h" />
     <ClInclude Include="RegFilter.h" />
+    <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

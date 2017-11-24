@@ -4,6 +4,7 @@
 #include <ntddk.h>
 #include "DriverVariables.h"
 #include "RegFilter.h"
+#include "Utils.h"
 
 typedef PCHAR TPsGetProcessImageFileName(PEPROCESS Process);
 

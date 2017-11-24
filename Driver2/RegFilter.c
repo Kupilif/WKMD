@@ -1,56 +1,56 @@
 #include "RegFilter.h"
 
-LPCWSTR GetNotifyClassString(_In_ REG_NOTIFY_CLASS NotifyClass)
+LPCSTR GetNotifyClassString(_In_ REG_NOTIFY_CLASS NotifyClass)
 {
 	switch (NotifyClass) {
-	case RegNtPreDeleteKey:                 return L"RegNtPreDeleteKey";
-	case RegNtPreSetValueKey:               return L"RegNtPreSetValueKey";
-	case RegNtPreDeleteValueKey:            return L"RegNtPreDeleteValueKey";
-	case RegNtPreSetInformationKey:         return L"RegNtPreSetInformationKey";
-	case RegNtPreRenameKey:                 return L"RegNtPreRenameKey";
-	case RegNtPreEnumerateKey:              return L"RegNtPreEnumerateKey";
-	case RegNtPreEnumerateValueKey:         return L"RegNtPreEnumerateValueKey";
-	case RegNtPreQueryKey:                  return L"RegNtPreQueryKey";
-	case RegNtPreQueryValueKey:             return L"RegNtPreQueryValueKey";
-	case RegNtPreQueryMultipleValueKey:     return L"RegNtPreQueryMultipleValueKey";
-	case RegNtPreKeyHandleClose:            return L"RegNtPreKeyHandleClose";
-	case RegNtPreCreateKeyEx:               return L"RegNtPreCreateKeyEx";
-	case RegNtPreOpenKeyEx:                 return L"RegNtPreOpenKeyEx";
-	case RegNtPreFlushKey:                  return L"RegNtPreFlushKey";
-	case RegNtPreLoadKey:                   return L"RegNtPreLoadKey";
-	case RegNtPreUnLoadKey:                 return L"RegNtPreUnLoadKey";
-	case RegNtPreQueryKeySecurity:          return L"RegNtPreQueryKeySecurity";
-	case RegNtPreSetKeySecurity:            return L"RegNtPreSetKeySecurity";
-	case RegNtPreRestoreKey:                return L"RegNtPreRestoreKey";
-	case RegNtPreSaveKey:                   return L"RegNtPreSaveKey";
-	case RegNtPreReplaceKey:                return L"RegNtPreReplaceKey";
+	case RegNtPreDeleteKey:                 return "RegNtPreDeleteKey";
+	case RegNtPreSetValueKey:               return "RegNtPreSetValueKey";
+	case RegNtPreDeleteValueKey:            return "RegNtPreDeleteValueKey";
+	case RegNtPreSetInformationKey:         return "RegNtPreSetInformationKey";
+	case RegNtPreRenameKey:                 return "RegNtPreRenameKey";
+	case RegNtPreEnumerateKey:              return "RegNtPreEnumerateKey";
+	case RegNtPreEnumerateValueKey:         return "RegNtPreEnumerateValueKey";
+	case RegNtPreQueryKey:                  return "RegNtPreQueryKey";
+	case RegNtPreQueryValueKey:             return "RegNtPreQueryValueKey";
+	case RegNtPreQueryMultipleValueKey:     return "RegNtPreQueryMultipleValueKey";
+	case RegNtPreKeyHandleClose:            return "RegNtPreKeyHandleClose";
+	case RegNtPreCreateKeyEx:               return "RegNtPreCreateKeyEx";
+	case RegNtPreOpenKeyEx:                 return "RegNtPreOpenKeyEx";
+	case RegNtPreFlushKey:                  return "RegNtPreFlushKey";
+	case RegNtPreLoadKey:                   return "RegNtPreLoadKey";
+	case RegNtPreUnLoadKey:                 return "RegNtPreUnLoadKey";
+	case RegNtPreQueryKeySecurity:          return "RegNtPreQueryKeySecurity";
+	case RegNtPreSetKeySecurity:            return "RegNtPreSetKeySecurity";
+	case RegNtPreRestoreKey:                return "RegNtPreRestoreKey";
+	case RegNtPreSaveKey:                   return "RegNtPreSaveKey";
+	case RegNtPreReplaceKey:                return "RegNtPreReplaceKey";
 
-	case RegNtPostDeleteKey:                return L"RegNtPostDeleteKey";
-	case RegNtPostSetValueKey:              return L"RegNtPostSetValueKey";
-	case RegNtPostDeleteValueKey:           return L"RegNtPostDeleteValueKey";
-	case RegNtPostSetInformationKey:        return L"RegNtPostSetInformationKey";
-	case RegNtPostRenameKey:                return L"RegNtPostRenameKey";
-	case RegNtPostEnumerateKey:             return L"RegNtPostEnumerateKey";
-	case RegNtPostEnumerateValueKey:        return L"RegNtPostEnumerateValueKey";
-	case RegNtPostQueryKey:                 return L"RegNtPostQueryKey";
-	case RegNtPostQueryValueKey:            return L"RegNtPostQueryValueKey";
-	case RegNtPostQueryMultipleValueKey:    return L"RegNtPostQueryMultipleValueKey";
-	case RegNtPostKeyHandleClose:           return L"RegNtPostKeyHandleClose";
-	case RegNtPostCreateKeyEx:              return L"RegNtPostCreateKeyEx";
-	case RegNtPostOpenKeyEx:                return L"RegNtPostOpenKeyEx";
-	case RegNtPostFlushKey:                 return L"RegNtPostFlushKey";
-	case RegNtPostLoadKey:                  return L"RegNtPostLoadKey";
-	case RegNtPostUnLoadKey:                return L"RegNtPostUnLoadKey";
-	case RegNtPostQueryKeySecurity:         return L"RegNtPostQueryKeySecurity";
-	case RegNtPostSetKeySecurity:           return L"RegNtPostSetKeySecurity";
-	case RegNtPostRestoreKey:               return L"RegNtPostRestoreKey";
-	case RegNtPostSaveKey:                  return L"RegNtPostSaveKey";
-	case RegNtPostReplaceKey:               return L"RegNtPostReplaceKey";
+	case RegNtPostDeleteKey:                return "RegNtPostDeleteKey";
+	case RegNtPostSetValueKey:              return "RegNtPostSetValueKey";
+	case RegNtPostDeleteValueKey:           return "RegNtPostDeleteValueKey";
+	case RegNtPostSetInformationKey:        return "RegNtPostSetInformationKey";
+	case RegNtPostRenameKey:                return "RegNtPostRenameKey";
+	case RegNtPostEnumerateKey:             return "RegNtPostEnumerateKey";
+	case RegNtPostEnumerateValueKey:        return "RegNtPostEnumerateValueKey";
+	case RegNtPostQueryKey:                 return "RegNtPostQueryKey";
+	case RegNtPostQueryValueKey:            return "RegNtPostQueryValueKey";
+	case RegNtPostQueryMultipleValueKey:    return "RegNtPostQueryMultipleValueKey";
+	case RegNtPostKeyHandleClose:           return "RegNtPostKeyHandleClose";
+	case RegNtPostCreateKeyEx:              return "RegNtPostCreateKeyEx";
+	case RegNtPostOpenKeyEx:                return "RegNtPostOpenKeyEx";
+	case RegNtPostFlushKey:                 return "RegNtPostFlushKey";
+	case RegNtPostLoadKey:                  return "RegNtPostLoadKey";
+	case RegNtPostUnLoadKey:                return "RegNtPostUnLoadKey";
+	case RegNtPostQueryKeySecurity:         return "RegNtPostQueryKeySecurity";
+	case RegNtPostSetKeySecurity:           return "RegNtPostSetKeySecurity";
+	case RegNtPostRestoreKey:               return "RegNtPostRestoreKey";
+	case RegNtPostSaveKey:                  return "RegNtPostSaveKey";
+	case RegNtPostReplaceKey:               return "RegNtPostReplaceKey";
 
-	case RegNtCallbackObjectContextCleanup: return L"RegNtCallbackObjectContextCleanup";
+	case RegNtCallbackObjectContextCleanup: return "RegNtCallbackObjectContextCleanup";
 
 	default:
-		return L"Unsupported REG_NOTIFY_CLASS";
+		return "Unsupported REG_NOTIFY_CLASS";
 	}
 }
 

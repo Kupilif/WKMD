@@ -19,6 +19,10 @@ void dvInitialize(PDEVICE_OBJECT pDeviceObject)
 	if (pDriverVariables == NULL) {
 		return;
 	}
+	RtlInitUnicodeString(&(pDriverVariables->uslogFileName), LOG_FILE_PATH);
 	pDriverVariables->isCallbackSet = FALSE;
 	RtlInitAnsiString(&(pDriverVariables->asTrackingProcess), TRACKING_PROCESS);
+	RtlInitAnsiString(&(pDriverVariables->asDriverName), DRIVER_NAME);
+	RtlInitAnsiString(&(pDriverVariables->asLogFileDelimiter), LOG_FILE_DELIMITER);
+	RtlInitAnsiString(&(pDriverVariables->asNewLineChar), "\n");
 }

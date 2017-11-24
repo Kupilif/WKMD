@@ -3,7 +3,7 @@
 
 #include <ntddk.h>
 
-LPCWSTR GetNotifyClassString(_In_ REG_NOTIFY_CLASS NotifyClass);
+LPCSTR GetNotifyClassString(_In_ REG_NOTIFY_CLASS NotifyClass);
 BOOLEAN IsLogToFileNeed(_In_ REG_NOTIFY_CLASS NotifyClass);
 
 #endif

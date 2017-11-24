@@ -12,16 +12,43 @@ PCSTR GetProcessFileNameById(IN HANDLE handle)
 
 NTSTATUS RegistryOperationsCallback(_In_ PVOID CallbackContext, _In_opt_ PVOID Argument1, _In_opt_ PVOID Argument2)
 {
-	ANSI_STRING asProcName;
+	HANDLE hLogFile;
+	NTSTATUS status;
+	IO_STATUS_BLOCK ioStatusBlock;
+	ANSI_STRING asProcName, asOperation;
 	HANDLE hCurrentProcId = PsGetCurrentProcessId();
 	PCSTR procName = GetProcessFileNameById(hCurrentProcId);
 	PDriverVariables driverVariables = GetDriverVariables(gpDeviceObject);
 	REG_NOTIFY_CLASS notifyClass = (REG_NOTIFY_CLASS)(ULONG_PTR)Argument1;
+	LARGE_INTEGER lInt;
+
+	lInt.HighPart = -1;
+	lInt.LowPart = FILE_WRITE_TO_END_OF_FILE;
 
 	RtlInitAnsiString(&asProcName, procName);
 	if (RtlEqualString(&asProcName, &(driverVariables->asTrackingProcess), FALSE)) {
 		if (IsLogToFileNeed(notifyClass)) {
-			DbgPrint("%s: %s: %ws\n", DRIVER_NAME, asProcName.Buffer, GetNotifyClassString(notifyClass));
+			RtlInitAnsiString(&asOperation, GetNotifyClassString(notifyClass));
+			DbgPrint("%s: %s: %s\n", DRIVER_NAME, asProcName.Buffer, asOperation.Buffer);
+
+			status = OpenLogFile(&(driverVariables->uslogFileName), &hLogFile);
+			if (NT_SUCCESS(status)) {
+				ZwWriteFile(hLogFile, NULL, NULL, NULL, &ioStatusBlock, driverVariables->asDriverName.Buffer, 
+					driverVariables->asDriverName.Length, &lInt, NULL);
+				ZwWriteFile(hLogFile, NULL, NULL, NULL, &ioStatusBlock, driverVariables->asLogFileDelimiter.Buffer,
+					driverVariables->asLogFileDelimiter.Length, &lInt, NULL);
+				ZwWriteFile(hLogFile, NULL, NULL, NULL, &ioStatusBlock, driverVariables->asTrackingProcess.Buffer,
+					driverVariables->asTrackingProcess.Length, &lInt, NULL);
+				ZwWriteFile(hLogFile, NULL, NULL, NULL, &ioStatusBlock, driverVariables->asLogFileDelimiter.Buffer,
+					driverVariables->asLogFileDelimiter.Length, &lInt, NULL);
+				ZwWriteFile(hLogFile, NULL, NULL, NULL, &ioStatusBlock, asOperation.Buffer, asOperation.Length, &lInt, NULL);
+				ZwWriteFile(hLogFile, NULL, NULL, NULL, &ioStatusBlock, driverVariables->asNewLineChar.Buffer,
+					driverVariables->asNewLineChar.Length, &lInt, NULL);
+				ZwClose(hLogFile);
+			}
+			else {
+				DbgPrint("%s: unable to open file. error code: %x\n", DRIVER_NAME, status);
+			}
 		}
 	}
 	
@@ -56,6 +83,7 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING  Registr
 		return STATUS_UNSUCCESSFUL;
 	}
 
+	HANDLE hLogFile;
 	UNICODE_STRING deviceName, altitude;
 	NTSTATUS status = STATUS_SUCCESS;
 	PDEVICE_OBJECT deviceObject = NULL;
