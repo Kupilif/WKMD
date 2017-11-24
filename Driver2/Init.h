@@ -5,8 +5,6 @@
 #include "DriverVariables.h"
 #include "RegFilter.h"
 
-#define DRIVER_NAME "Driver2"
-
 typedef PCHAR TPsGetProcessImageFileName(PEPROCESS Process);
 
 extern NTSTATUS PsLookupProcessByProcessId(HANDLE ProcessId, PEPROCESS *Process);

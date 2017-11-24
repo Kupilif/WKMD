@@ -3,6 +3,7 @@
 
 #include <ntddk.h>
 
+#define DRIVER_NAME "Driver2"
 #define TRACKING_PROCESS "regedit.exe"
 
 typedef struct _DriverVariables

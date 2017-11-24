@@ -57,12 +57,13 @@ LPCWSTR GetNotifyClassString(_In_ REG_NOTIFY_CLASS NotifyClass)
 BOOLEAN IsLogToFileNeed(_In_ REG_NOTIFY_CLASS NotifyClass)
 {
 	switch (NotifyClass) {
-	case RegNtPostDeleteKey:
+	case RegNtPostSetInformationKey:
 	case RegNtPostSetValueKey:
 	case RegNtPostDeleteValueKey:
-	case RegNtPostSetInformationKey:
+	case RegNtPostDeleteKey:
 	case RegNtPostRenameKey:
 	case RegNtPostCreateKeyEx:
+	case RegNtPostSaveKey:
 		return TRUE;
 
 	default:
