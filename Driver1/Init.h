@@ -4,8 +4,6 @@
 #include <ntddk.h>
 #include "DriverVariables.h"
 
-#define DRIVER_NAME "Driver1"
-
 typedef PCHAR TPsGetProcessImageFileName(PEPROCESS Process);
 
 extern NTSTATUS PsLookupProcessByProcessId(HANDLE ProcessId, PEPROCESS *Process);

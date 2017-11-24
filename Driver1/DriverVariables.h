@@ -3,7 +3,8 @@
 
 #include <ntddk.h>
 
-#define TRACKING_PROCESS "cmd.exe"
+#define DRIVER_NAME "Driver1"
+#define TRACKING_PROCESS "calc.exe"
 #define SYNC_CREATE_PROC_EVENT L"\\BaseNamedObjects\\CreateProcEvent"
 #define SYNC_CLOSE_PROC_EVENT L"\\BaseNamedObjects\\CloseProcEvent"
 

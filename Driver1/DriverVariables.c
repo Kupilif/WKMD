@@ -29,23 +29,23 @@ void dvInitialize(PDEVICE_OBJECT pDeviceObject)
 	RtlInitUnicodeString(&uszProcessEventString, SYNC_CREATE_PROC_EVENT);
 	pDriverVariables->createProcEvent = IoCreateNotificationEvent(&uszProcessEventString, &(pDriverVariables->createProcHandle));
 	if (pDriverVariables->createProcEvent == NULL) {
-		DbgPrint("unable to create CREATE_PROC_EVENT");
+		DbgPrint("%s: unable to create CREATE_PROC_EVENT", DRIVER_NAME);
 	}
 	else {
 		KeClearEvent(pDriverVariables->createProcEvent);
 		pDriverVariables->isCreateProcEventCreated = TRUE;
-		DbgPrint("created CREATE_PROC_EVENT");
+		DbgPrint("%s: created CREATE_PROC_EVENT", DRIVER_NAME);
 	}
 
 	RtlInitUnicodeString(&uszProcessEventString, SYNC_CLOSE_PROC_EVENT);
 	pDriverVariables->closeProcEvent = IoCreateNotificationEvent(&uszProcessEventString, &(pDriverVariables->closeProcHandle));
 	if (pDriverVariables->closeProcEvent == NULL) {
-		DbgPrint("unable to create CLOSE_PROC_EVENT");
+		DbgPrint("%s: unable to create CLOSE_PROC_EVENT", DRIVER_NAME);
 	}
 	else {
 		KeClearEvent(pDriverVariables->closeProcEvent);
 		pDriverVariables->isCloseProcEventCreated = TRUE;
-		DbgPrint("created CLOSE_PROC_EVENT");
+		DbgPrint("%s: created CLOSE_PROC_EVENT", DRIVER_NAME);
 	}
 }
 
