@@ -1,12 +1,7 @@
-# WKMD
-Windows Kernel Mode Driver
+# Windows Kernel Mode Driver
 
-Операционные системы и системное программирование(ОСиСП), ОС Windows
+Learning of how to create Windows kernel mode drivers, ways of intercepting API calls in kernel mode.
 
-Изучение создания драйверов Windows режима ядра, методов перехвата API-вызовов в режиме ядра.
+- Implement a virtual device driver that tracks the start of some process X. When this process starts the driver starts another process Y. The driver stops process Y as soon as process X terminates for some reason.
 
-- Разработать драйвер (виртуального устройства), который отслеживает запуск некоторого процесса X. При запуске этого процесса драйвер 
-запускает другой процесс Y. Как только процесс X завершается по какой-то причине, драйвер выгружает процесс Y.
-
-- Разработать драйвер (виртуального устройства), который отслеживает измнения в реестре Windows заданным процессом (или за какое-то время) 
-и создает на диске журнал.
+- Implement a virtual device driver that tracks changes in Windows registry by a given process and creates a log file.
